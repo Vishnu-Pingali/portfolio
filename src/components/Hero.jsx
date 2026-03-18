@@ -60,7 +60,7 @@ export default function Hero() {
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 1, ease: 'easeOut', delay: 0.4 }}
-          className="text-sm md:text-base text-accent-primary max-w-2xl mx-auto mb-10 font-mono tracking-widest leading-relaxed bg-base/50 p-4 border-l-2 border-accent-primary"
+          className="text-sm md:text-base text-white max-w-2xl mx-auto mb-10 font-mono tracking-widest leading-relaxed bg-base/50 p-4 border-l-2 border-accent-primary"
         >
           &gt; MACHINE LEARNING ENGINEER<br/>
           &gt; AEROSPACE AI &amp; DEFENSE SYSTEMS<br/>
