@@ -170,7 +170,7 @@ export default function Contact() {
           </div>
           <span className="font-mono text-[10px] tracking-widest text-text-muted/50 group-hover:text-accent-primary transition-colors">GH_LINK</span>
         </a>
-        <a href="https://linkedin.com/in/vishnupingali" target="_blank" rel="noopener noreferrer" className="social-dish group flex flex-col items-center gap-3">
+        <a href="https://www.linkedin.com/in/vishnu-vardhan-9b7bb32a2/" target="_blank" rel="noopener noreferrer" className="social-dish group flex flex-col items-center gap-3">
           <div className="w-14 h-14 rounded-full border border-border bg-surface flex items-center justify-center text-text-muted group-hover:text-accent-secondary group-hover:border-accent-secondary group-hover:shadow-[0_0_20px_rgba(112,0,255,0.4)] transition-all duration-300 hover:-translate-y-2">
             <Linkedin size={24} />
           </div>
