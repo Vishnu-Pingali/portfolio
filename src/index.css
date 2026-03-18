@@ -1,0 +1,157 @@
+@import "tailwindcss";
+
+@theme {
+  --color-base: #05050a;
+  --color-surface: rgba(10, 15, 30, 0.4);
+  --color-surface-hover: rgba(0, 240, 255, 0.1);
+  --color-border: rgba(112, 0, 255, 0.3);
+  --color-border-hover: rgba(0, 240, 255, 0.8);
+  
+  --color-accent-primary: #00f0ff; /* Neon Blue */
+  --color-accent-secondary: #7000ff; /* Deep Violet */
+  --color-accent-tertiary: #00ff41; /* Cyber Green */
+
+  --color-text-main: #e2e8f0;
+  --color-text-muted: #8b9bb4;
+
+  --font-display: 'Syncopate', sans-serif;
+  --font-body: 'Space Grotesk', sans-serif;
+  --font-mono: 'Share Tech Mono', monospace;
+}
+
+/* Base Styles (Defense AI Command Center) */
+body {
+  @apply bg-base text-text-main font-body antialiased overflow-x-hidden relative;
+}
+
+/* Subtle CSS noise for editorial texture */
+body::before {
+  content: "";
+  @apply fixed inset-0 pointer-events-none opacity-[0.04] z-[9999];
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Focus States (ui-ux-pro-max accessibility) */
+:focus-visible {
+  @apply outline-none ring-2 ring-accent-primary ring-offset-2 ring-offset-base rounded-sm;
+}
+
+h1, h2, h3, h4, .font-display {
+  @apply font-display font-bold uppercase tracking-widest;
+}
+
+.font-mono {
+  @apply font-mono;
+}
+
+/* Glassmorphism / HUD Utilities */
+.glass-panel {
+  @apply bg-surface border border-border backdrop-blur-md relative overflow-hidden;
+  /* Angled corners via clip-path for that sci-fi HUD look */
+  clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 15px, 100% 100%, 15px 100%, 0 calc(100% - 15px));
+}
+
+/* Subtly glow effect */
+.glass-panel::before {
+  content: '';
+  @apply absolute inset-0 bg-gradient-to-br from-accent-primary/5 to-accent-secondary/5 opacity-0 transition-opacity duration-300 -z-10;
+}
+.glass-panel:hover::before {
+  @apply opacity-100;
+}
+
+/* 3D Hover & Glow */
+.hover-3d {
+  transform-style: preserve-3d;
+  @apply transition-all duration-400 ease-out;
+}
+.hover-3d:hover {
+  @apply border-border-hover shadow-[0_0_30px_rgba(0,240,255,0.2)];
+}
+
+/* Gradient Text */
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-accent-primary via-white to-accent-primary animate-pulse;
+  background-size: 200% auto;
+}
+
+/* Button */
+.btn-primary {
+  @apply inline-flex items-center justify-center gap-2 px-6 py-3 font-mono font-bold text-base bg-accent-primary/10 text-accent-primary border border-accent-primary shadow-[0_0_15px_rgba(0,240,255,0.3)] transition-all duration-300 cursor-pointer select-none uppercase tracking-wider relative overflow-hidden;
+  min-height: 44px; /* ui-ux-pro-max rule: touch target */
+  clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+}
+.btn-primary::after {
+  content: '';
+  @apply absolute inset-0 bg-accent-primary opacity-0 transition-opacity duration-300 -z-10;
+}
+.btn-primary:active {
+  @apply scale-95;
+}
+.btn-primary:hover {
+  @apply shadow-[0_0_30px_rgba(0,240,255,0.6)] text-base;
+}
+.btn-primary:hover::after {
+  @apply opacity-20;
+}
+
+.btn-outline {
+  @apply inline-flex items-center justify-center gap-2 px-6 py-3 font-mono font-bold text-text-main bg-transparent border border-border transition-all duration-300 cursor-pointer select-none uppercase tracking-wider;
+  min-height: 44px;
+  clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+}
+.btn-outline:active {
+  @apply scale-95;
+}
+.btn-outline:hover {
+  @apply border-accent-secondary text-accent-secondary shadow-[0_0_20px_rgba(112,0,255,0.3)];
+}
+
+/* Timeline (Mission Control) */
+.timeline-dot {
+  @apply absolute -left-[27px] top-1.5 w-4 h-4 bg-base border-2 border-accent-primary shadow-[0_0_10px_rgba(0,240,255,0.8)];
+  /* Diamond shape */
+  transform: rotate(45deg);
+}
+.timeline-line {
+  @apply absolute left-0 top-0 bottom-0 w-[2px] bg-gradient-to-b from-accent-primary via-accent-secondary to-transparent opacity-50;
+}
+
+/* Tags / HUD Metrics */
+.tag {
+  @apply text-xs px-2.5 py-1 font-mono uppercase tracking-wider border;
+}
+.tag-indigo { /* Reusing name but coloring as neon blue */
+  @apply bg-accent-primary/10 text-accent-primary border-accent-primary/40 shadow-[0_0_10px_rgba(0,240,255,0.2)];
+}
+.tag-cyan { /* Violet */
+  @apply bg-accent-secondary/10 text-[#d8b4fe] border-accent-secondary/40 shadow-[0_0_10px_rgba(112,0,255,0.2)];
+}
+.tag-purple { /* Cyber Green */
+  @apply bg-accent-tertiary/10 text-accent-tertiary border-accent-tertiary/40 shadow-[0_0_10px_rgba(0,255,65,0.2)];
+}
+
+::selection {
+  @apply bg-accent-secondary text-white;
+}
+
+/* Star field background (Keep existing logic but hue shift) */
+#stars {
+  @apply fixed inset-0 pointer-events-none -z-50 opacity-50;
+}
+
+@keyframes scan {
+  0% { transform: translateY(-10px); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(400px); opacity: 0; }
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+.typing-effect {
+  animation: typing 2s steps(40, end);
+}
