@@ -19,7 +19,8 @@ export function DataCube() {
     { text: "SIGNAL INTEL", pos: [1.01, 0, 0], rot: [0, Math.PI / 2, 0] },
     { text: "ML OPS", pos: [-1.01, 0, 0], rot: [0, -Math.PI / 2, 0] },
     { text: "COMPUTER VISION", pos: [0, 1.01, 0], rot: [-Math.PI / 2, 0, 0] },
-    { text: "CYBER SECURITY", pos: [0, -1.01, 0], rot: [Math.PI / 2, 0, 0] },
+    { text: "MACHINE LEARNING", pos: [0, -1.01, 0], rot: [Math.PI / 2, 0, 0] },
+
   ];
 
   return (
