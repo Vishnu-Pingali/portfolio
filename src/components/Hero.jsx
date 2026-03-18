@@ -1,7 +1,6 @@
 import React, { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { SatelliteCore } from '../three/SatelliteCore';
-import { EffectComposer, Bloom } from '@react-three/postprocessing';
 import { ChevronDown, FileDown, Terminal } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -16,11 +15,8 @@ export default function Hero() {
             [ INITIATING SATELLITE CORE... ]
           </div>
         }>
-          <Canvas camera={{ position: [0, 0, 7], fov: 60 }}>
+          <Canvas camera={{ position: [0, 0, 7], fov: 60 }} dpr={[1, 1.5]}>
             <SatelliteCore />
-            <EffectComposer>
-              <Bloom luminanceThreshold={1} mipmapBlur intensity={1.5} />
-            </EffectComposer>
           </Canvas>
         </Suspense>
       </div>

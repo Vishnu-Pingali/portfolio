@@ -52,10 +52,9 @@ export function DataCube() {
           position={face.pos}
           rotation={face.rot}
           fontSize={0.25}
-          color="#00ff41" /* Cyber green text */
+          color="#00ff41"
           anchorX="center"
           anchorY="middle"
-          font="https://fonts.gstatic.com/s/sharetechmono/v15/J7aHnp1uDcgPUVLSggaIzyt6vjsv.woff"
           maxWidth={1.8}
           textAlign="center"
         >
