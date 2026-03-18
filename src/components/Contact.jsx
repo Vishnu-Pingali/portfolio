@@ -176,7 +176,7 @@ export default function Contact() {
           </div>
           <span className="font-mono text-[10px] tracking-widest text-text-muted/50 group-hover:text-accent-secondary transition-colors">IN_LINK</span>
         </a>
-        <a href="mailto:vishnupingali@example.com" className="social-dish group flex flex-col items-center gap-3">
+        <a href="mailto:vishnu.pingali122@gmail.com" className="social-dish group flex flex-col items-center gap-3">
           <div className="w-14 h-14 rounded-full border border-border bg-surface flex items-center justify-center text-text-muted group-hover:text-amber-400 group-hover:border-amber-400 group-hover:shadow-[0_0_20px_rgba(2fb,191,36,0.4)] transition-all duration-300 hover:-translate-y-2">
             <Mail size={24} />
           </div>
