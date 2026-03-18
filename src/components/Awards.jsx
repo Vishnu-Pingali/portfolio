@@ -31,17 +31,22 @@ export default function Awards() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from('.award-card', {
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top 80%',
-        },
-        scale: 0.8,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.2,
-        ease: 'back.out(1.7)'
-      });
+      gsap.fromTo('.award-card',
+        { scale: 0.8, opacity: 0 },
+        {
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top 80%',
+            once: true,
+          },
+          scale: 1,
+          opacity: 1,
+          duration: 0.8,
+          stagger: 0.2,
+          ease: 'back.out(1.7)',
+          immediateRender: false,
+        }
+      );
     }, sectionRef);
     
     return () => ctx.revert();
